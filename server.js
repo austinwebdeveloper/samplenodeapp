@@ -29,7 +29,8 @@ mongoose.connect('mongodb://' + dbUsername + ':' + dbPassword + '@ds153689.mlab.
 var MongoClient = mongodb.MongoClient;
 var dbUsername = "dbuser";
 var dbPassword = "Nueve9";
-var url = 'mongodb://dbuser:Nueve9@ds153689.mlab.com:53689/heroku_5lw5fr63';
+var url = 'mongodb://dbuser:Nueve9@ds125126.mlab.com:25126/heroku_wp8qdw6r';
+
 /*
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
