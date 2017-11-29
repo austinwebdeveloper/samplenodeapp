@@ -92,7 +92,7 @@ router.route('/sampleText')
   });
  });
 
-/*
+
 app.listen(process.env.PORT || 3000, function(){
   console.log('listening on', app.address().port);
 });
@@ -102,8 +102,10 @@ app.listen(port);
 
 // Print
 console.log('Server running port: ' + port);
-*/
 
+
+
+/*
 // Connect to the database before starting the application server.
 MongoClient.connect(url, function (err, database) {
   if (err) {
@@ -121,3 +123,4 @@ MongoClient.connect(url, function (err, database) {
     console.log("App now running on port", port);
   });
 });
+*/
