@@ -11,7 +11,6 @@ var User = require('./api/user');
 var CONTACTS_COLLECTION = "contacts";
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
-
 // Body Parser Configuration
 // Retrieving data from the body of the post
 app.use(bodyParser.urlencoded({extended: true}));
