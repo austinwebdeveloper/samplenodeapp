@@ -69,7 +69,8 @@ router.route('/users')
   if(err) {
   res.send(err);
   }
-  res.json(users);
+  res.send('success');
+  // res.json(users);
   });
  });
 
