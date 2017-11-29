@@ -1,16 +1,9 @@
 var express = require('express');
-var path = require("path");
 var mongoose = require('mongoose');
 var app = express();
 var bodyParser = require('body-parser');
-var mongodb = require('mongodb')
-var ObjectID = mongodb.ObjectID;
 var SampleText = require('./api/sample');
 var User = require('./api/user');
-
-var CONTACTS_COLLECTION = "contacts";
-// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
-var db;
 // Body Parser Configuration
 // Retrieving data from the body of the post
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,25 +13,14 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // DATABASE CONNECTION
+mongoose.connect('mongodb://dbuser:Nueve9@ds125126.mlab.com:25126/heroku_wp8qdw6r');
+// DATABASE CONNECTION
 /*
 var dbUsername = "db_user";
 var dbPassword = "NueveSol@9";
 mongoose.connect('mongodb://' + dbUsername + ':' + dbPassword + '@ds153689.mlab.com:53689/heroku_5lw5fr63');
 */
 
-var MongoClient = mongodb.MongoClient;
-var dbUsername = "dbuser";
-var dbPassword = "Nueve9";
-var url = 'mongodb://dbuser:Nueve9@ds125126.mlab.com:25126/heroku_wp8qdw6r';
-
-
-/*
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  console.log("Database created!");
-  db.close();
-});
-*/
 // API ROUTES
 var router = express.Router();
 
@@ -69,8 +51,7 @@ router.route('/users')
   if(err) {
   res.send(err);
   }
-  res.send('success');
-  // res.json(users);
+  res.json(users);
   });
  });
 
@@ -94,32 +75,11 @@ router.route('/sampleText')
   });
  });
 
-/*
-app.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', app.address().port);
-});
+
+
 
 // Server
 app.listen(port);
 
 // Print
 console.log('Server running port: ' + port);
-*/
-
-// Connect to the database before starting the application server.
-MongoClient.connect(url, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
-
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready!!");
-
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 3000, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
-});
