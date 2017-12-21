@@ -77,11 +77,11 @@ router.route('/sampleText')
  
  router.route('/getusers')
 .get(function(req, res) {
-   User.find(function(err, users) {
+   User.find(function(err, user) {
   if(err) {
   res.send(err);
   }
-  res.json(users);
+  res.json(user);
   });
  });
 
