@@ -43,7 +43,7 @@ router.route('/users')
  if(err){
  res.send(err);
  }
- res.json({message: 'User was successfully inserted'});
+ res.json({message: 'User was  inserted'});
  });
 })
 .get(function(req, res) {
