@@ -43,7 +43,7 @@ router.route('/users')
  if(err){
  res.send(err);
  }
- res.json({message: 'User was  inserted'});
+ res.json({message: 'Successfully Registered'});
  });
 })
 .get(function(req, res) {
@@ -72,6 +72,17 @@ router.route('/sampleText')
   res.send(err);
   }
   res.json(sampleText);
+  });
+ });
+ 
+ router.route('/getusers')
+.get(function(req, res) {
+	var user = new User();
+   user.find(function(err, user) {
+  if(err) {
+  res.send(err);
+  }
+  res.json(user);
   });
  });
 
