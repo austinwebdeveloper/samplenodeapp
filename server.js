@@ -56,9 +56,9 @@ router.route('/users')
 			 }
 			 res.json({message: 'Successfully Registered'});
 			 });
-            
-        });
-    }
+        }   
+        
+    });
  
 
  
