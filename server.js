@@ -40,9 +40,15 @@ router.route('/users')
  user.password = req.body.password;
  user.phone = req.body.phone;
  
+            user.save(function(err){
+			 if(err){
+			 res.send(err);
+			 }
+			 res.json({message: 'Successfully Registered'});
+			 });
  
  
-    user.find({phone : req.body.phone}, function (err, docs) 
+    /*user.find({phone : req.body.phone}, function (err, docs) 
     {
         if (docs.length){
             //err('Phone already exists',null);
@@ -58,7 +64,7 @@ router.route('/users')
 			 });
         }   
         
-    });
+    });*/
  
 
  
