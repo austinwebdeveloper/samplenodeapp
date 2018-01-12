@@ -43,7 +43,7 @@ router.route('/users')
  if(err){
  res.send(err);
  }
- res.json({message: 'Successfully Registered'});
+ res.json({message: 'Successfully Registered.'});
  });
 })
 .get(function(req, res) {
