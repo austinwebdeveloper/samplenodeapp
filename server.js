@@ -39,12 +39,30 @@ router.route('/users')
  user.email = req.body.email;
  user.password = req.body.password;
  user.phone = req.body.phone;
- user.save(function(err){
- if(err){
- res.send(err);
- }
- res.json({message: 'Successfully Registered.'});
- });
+ 
+ 
+ 
+    user.find({phone : req.body.phone}, function (err, docs) 
+    {
+        if (docs.length){
+            //err('Phone already exists',null);
+			res.json({message: 'Phone already exists'});
+        }
+		else
+		{
+			 user.save(function(err){
+			 if(err){
+			 res.send(err);
+			 }
+			 res.json({message: 'Successfully Registered'});
+			 });
+            
+        });
+    }
+ 
+
+ 
+ 
 })
 .get(function(req, res) {
    User.find(function(err, users) {
