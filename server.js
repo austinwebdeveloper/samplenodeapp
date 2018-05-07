@@ -13,7 +13,10 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // DATABASE CONNECTION
-mongoose.connect('mongodb://dbuser:Nueve9@ds125126.mlab.com:25126/heroku_wp8qdw6r');
+/*mongoose.connect('mongodb://dbuser:Nueve9@ds125126.mlab.com:25126/heroku_wp8qdw6r');*/
+mongoose.connect('mongodb://chitchatuser:prasad@785@ds117250.mlab.com:17250/chitchat');
+
+
 // DATABASE CONNECTION
 /*
 var dbUsername = "db_user";
