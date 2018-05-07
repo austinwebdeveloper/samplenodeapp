@@ -10,11 +10,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // PORT
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 
 // DATABASE CONNECTION
 /*mongoose.connect('mongodb://dbuser:Nueve9@ds125126.mlab.com:25126/heroku_wp8qdw6r');*/
-mongoose.connect('mongodb://chitchatuser:prasad@785@ds117250.mlab.com:17250/chitchat');
+mongoose.connect('mongodb://chitchatuser:chitchatpass@ds117250.mlab.com:17250/chitchat', { useMongoClient: true });
 
 
 // DATABASE CONNECTION
